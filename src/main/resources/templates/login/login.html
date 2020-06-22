@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"></meta>
+	<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
+	<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+	<!-- CSSの読み込み -->
+	<link th:href="@{/css/login.css}" rel="stylesheet"></link>
+	<title>Login</title>
+</head>
+<body class="text-center">
+	<div class="container">
+		<div class="border" style="padding:10px;">
+			<h1 class="login">Login</h1>
+			<form method="post" action="/login">
+				<!-- ユーザーID -->
+				<label class="user">ユーザーID</label>
+				<input type="text" /><br/>
+				<br/>
+				<!-- パスワード -->
+				<label class="password">パスワード</label>
+				<input type="password" /><br/>
+				<br />
+				<!-- ログインボタン -->
+				<button class="btn btn-success" type="submit">ログイン</button>
+			</form>
+			<br />
+			<!-- ユーザー登録画面へのリンク -->
+			<a th:href="@{'/signup'}">ユーザーの新規登録はこちら</a>
+		</div>
+	</div>
+	<br>
+</body>
+</html>

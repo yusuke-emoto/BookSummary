@@ -1,0 +1,22 @@
+body{
+	background-image:url("../images/book2.jpg");
+	padding-top:30px;
+}
+.container{
+	border: 1px solid;
+	background-color:#fff;
+}
+.border{
+	padding-top:30px;
+}
+h1.login{
+	font-family:serif;
+}
+.user{
+	font-family:'Meiryo UI';
+}
+.password{
+	font-family:'Meiryo UI';
+}
+	
+
