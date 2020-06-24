@@ -12,23 +12,24 @@ import lombok.Data;
 
 @Data
 public class SignupForm {
-	@NotBlank //必須入力
-	@Email //メールアドレス形式
+	//ValidGroup.class(1,2,3)はバリデーション（入力チェック）の順序の指定
+	@NotBlank(groups = ValidGroup1.class) //必須入力、一番目にチェックされる項目
+	@Email(groups = ValidGroup2.class) //メールアドレス形式、二番目にチェックされる
 	private String userId; //ユーザーID
 	
-	@NotBlank //必須入力
-	@Length(min=4,max=100) //長さ４から100桁
-	@Pattern(regexp="^[a-zA-Z0-9]+$") //半角英数字のみ
+	@NotBlank(groups = ValidGroup1.class) //必須入力
+	@Length(min=4,max=100,groups = ValidGroup2.class) //長さ４から100桁
+	@Pattern(regexp="^[a-zA-Z0-9]+$",groups = ValidGroup3.class) //半角英数字のみ
 	private String password; //パスワード
 	
-	@NotBlank //必須入力
+	@NotBlank(groups = ValidGroup1.class) //必須入力
 	private String userName; //ユーザー名
 	
-	@Min(0) //値が０から
-	@Max(100) //100まで
+	@Min(value=1,groups = ValidGroup2.class) //値が０から
+	@Max(value=100,groups = ValidGroup2.class) //100まで
 	private int age; //年齢
 	
-	@NotBlank
+	@NotBlank(groups = ValidGroup2.class)
 	private String gender; //性別
 	
 	

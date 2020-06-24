@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+import com.example.demo.login.domain.model.GroupOrder;
 import com.example.demo.login.domain.model.SignupForm;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -36,9 +38,9 @@ public class SignupController {
 	}
 	//ユーザー登録用のPOST用コントローラー
 	@PostMapping("/signup")
-	public String postSignUp(@ModelAttribute @Validated SignupForm form, BindingResult bindingResult, Model model) {
+	public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form, BindingResult bindingResult, Model model) {
 		//入力結果を間違えていても,BindingResultクラスで処理してくれる
-		//@ValidatedをつけることでSignupFormクラスのバリデーションを行える
+		//@ValidatedをつけることでSignupFormクラスのバリデーションを行える,(GroupOrder)で実行順序を指定できるようになる
 		
 		//入力チェックが間違っている場合、ユーザー登録画面に戻る
 		if(bindingResult.hasErrors()) {

@@ -65,10 +65,11 @@
 				<tr>
 					<th class="active">性別</th>
 					<td>
-						<div class="form-group">
+						<div class="form-group" th:classappend="${#fields.hasErrors('gender')}?'has-error'">
 						<!-- ラジオボタンの実装 -->
 							<div th:each="item :${radioGender}">
 								<input type="radio" name="radioGender" th:text="${item.key}" th:value="${item.value}" th:field="*{gender}"></input>
+								<span class="text-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">gender error</span>
 							</div>
 						</div>
 					</td>
