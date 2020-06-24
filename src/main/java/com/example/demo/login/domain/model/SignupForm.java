@@ -27,6 +27,8 @@ public class SignupForm {
 	@Min(0) //値が０から
 	@Max(100) //100まで
 	private int age; //年齢
+	
+	@NotBlank
 	private String gender; //性別
 	
 	

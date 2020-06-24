@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import com.example.demo.login.domain.model.SignupForm;
@@ -35,8 +36,10 @@ public class SignupController {
 	}
 	//ユーザー登録用のPOST用コントローラー
 	@PostMapping("/signup")
-	public String postSignUp(@ModelAttribute SignupForm form, BindingResult bindingResult, Model model) {
+	public String postSignUp(@ModelAttribute @Validated SignupForm form, BindingResult bindingResult, Model model) {
 		//入力結果を間違えていても,BindingResultクラスで処理してくれる
+		//@ValidatedをつけることでSignupFormクラスのバリデーションを行える
+		
 		//入力チェックが間違っている場合、ユーザー登録画面に戻る
 		if(bindingResult.hasErrors()) {
 			//Getリクエスト用のメソッドを呼び出す
