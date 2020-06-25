@@ -1,0 +1,9 @@
+.sidebar{
+	position:fixed;
+	display:block;
+	top:50px;
+	bottom:0;
+	background-color:#C0C0C0;
+	margin:15px;
+	
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<meta charset="UTF-8"></meta>
+		<!-- Bootstrapの設定 -->
+		<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet"></link>
+		<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+		<!-- CSSの読み込み -->
+		<link th:href="@{/css/home.css}" rel="stylesheet"></link>
+		<title>Home</title>
+	</head>
+	<body>
+	<!-- ヘッダー -->
+		<nav class="navbar navbar-inverse navbar-fixed-top"><!-- 一番上の黒いバー -->
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">BookSummary</a>
+				</div>
+				<form method="post" th:action="@{/login}">
+					<button class="btn btn-link pull-right navbar-brand" type="submit">ログイン</button>
+				</form>
+				<form method="post" th:action="@{/signup}">
+					<button class="btn btn-link pull-right navbar-brand" type="submit">新規登録</button>
+				</form>
+				<form method="post">
+					<button class="btn btn-link pull-right navbar-brand" type="submit">投稿</button>
+				</form>
+			</div>
+		</nav>
+		<!-- サイドバー -->
+		<div class="container-fluid"><!-- 流動的コンテナ、横幅いっぱいにひろがる -->
+			<div class="row"><!-- コンテナを水平に分割する行 -->
+				<div class="col-sm-2 sidebar"><!-- カラム。縦の列の幅を決める。12分割されている -->
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation">
+							<form class="form-inline">
+    							<input class="form-control mr-sm-2" type="search" placeholder="検索..." aria-label="検索...">
+    							<button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
+  							</form>
+  							<a>本のジャンル</a>
+  							<div class="list-group">
+ 								 <a href="#" class="list-group-item list-group-item-action">ビジネス・経済</a>
+ 								 <a href="#" class="list-group-item list-group-item-action">小説</a>
+  								　<a href="#" class="list-group-item list-group-item-action">歴史・地理</a>
+ 								 <a href="#" class="list-group-item list-group-item-action">教育・自己啓発</a>
+　　　　　　　　　　　　　　　　　　　　　　　　　　　<a href="#" class="list-group-item list-group-item-action">専門書</a>
+                           </div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- コンテンツ -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-2 main">
+					<div th:include="__${contents}__"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
