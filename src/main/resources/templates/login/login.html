@@ -14,13 +14,15 @@
 		<div class="border" style="padding:10px;">
 			<h1 class="login">Login</h1>
 			<form method="post" action="/login">
+				<!-- エラーメッセージ -->
+				<p th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']}!= null" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="text-danger">ログインエラーメッセージ</p>
 				<!-- ユーザーID -->
 				<label class="user">ユーザーID</label>
-				<input type="text" /><br/>
+				<input type="text" name="userId" /><br/>
 				<br/>
 				<!-- パスワード -->
 				<label class="password">パスワード</label>
-				<input type="password" /><br/>
+				<input type="password" name="password" /><br/>
 				<br />
 				<!-- ログインボタン -->
 				<button class="btn btn-success" type="submit">ログイン</button>
