@@ -21,8 +21,8 @@ public class SignupController {
 	private Map<String,String> initRadioGender(){
 		Map<String,String> radio=new LinkedHashMap<>();
 		//男性、女性をMapに格納
-		radio.put("男性","Man");
-		radio.put("女性","Woman");
+		radio.put("男性","true");
+		radio.put("女性","false");
 		System.out.println(radio);
 		return radio;
 	}

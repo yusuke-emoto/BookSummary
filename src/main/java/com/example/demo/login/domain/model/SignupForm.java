@@ -29,8 +29,7 @@ public class SignupForm {
 	@Max(value=100,groups = ValidGroup2.class) //100まで
 	private int age; //年齢
 	
-	@NotBlank(groups = ValidGroup2.class)
-	private String gender; //性別
+	private boolean gender; //性別
 	
 	
 
