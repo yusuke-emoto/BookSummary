@@ -7,11 +7,10 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.login.domain.model.User;
 import com.example.demo.login.domain.repository.UserDao;
 
-@Repository //データ層のクラス（DAO等のDBサクセスを行うクラス）に付与する
-//UserDaoJdbcImplのImplはUserDaoインターフェースを実装しているクラスという意味
+@Repository //データ層のクラス（DAO等のDBサクセスを行うクラス）に付与する,//UserDaoJdbcImplのImplはUserDaoインターフェースを実装しているクラスという意味
 public class UserDaoJdbcImpl implements UserDao{ 
 	@Autowired //@Componentアノテーションのついたクラスの中から該当するものを探し、newしてインスタンスを突っ込んでくれる
-	JdbcTemplate jdbc;
+	JdbcTemplate jdbc; //jdbcテンプレートを使用
 	
 	//Userテーブルの件数を取得
 	@Override //オーバーライドするよ、@Overrideを付けることでスペルミス等が防げる
@@ -19,10 +18,24 @@ public class UserDaoJdbcImpl implements UserDao{
 		return 0;
 	}
 	
-	//Userテーブルにデータを一件挿入
+	//Userテーブルにデータを一件取得
 	@Override
 	public int insertOne(User user) throws DataAccessException{
-		return 0;
+		int rowNumber =jdbc.update("INSERT INTO m_user(user_id,"
+				+ " password,"
+				+ " user_name,"
+				+ " age,"
+				+ " gender,"
+				+ " role)"
+				+ " VALUES(?,?,?,?,?,?)"
+				, user.getUserId()
+				, user.getPassword()
+				, user.getUserName()
+				, user.getAge()
+				, user.isGender()
+				, user.getRole());
+		
+		return rowNumber;
 	}
 	
 	//Userテーブルのデータを一件取得
