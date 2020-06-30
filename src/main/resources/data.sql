@@ -1,1 +1,1 @@
-INSERT INTO m_user (user_id, password, user_name, age, gender, role) VALUES('emoto@xxx.co.jp', 'password', '江元勇介', '26', 'true', 'ROLE_ADMIN');
+INSERT INTO m_user (user_id, password, user_name, age, gender, role) VALUES('emoto@xxx.co.jp', '$2a$10$xRTXvpMWly0oGiu65WZlm.3YL95LGVV2ASFjDhe6WF4.Qji1huIPa', '江元勇介', '26', 'true', 'ROLE_ADMIN');
