@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			+ " FROM"
 			+ " m_user"
 			+ " WHERE"
-			+ " user_id=?";
+			+ " user_id = ?";
 	//ユーザーのロールをする検索SQL文
 	private static final String ROLE_SQL=" SELECT"
 			+ " user_id,"
